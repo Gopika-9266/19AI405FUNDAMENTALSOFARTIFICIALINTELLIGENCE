@@ -1,6 +1,6 @@
-<h1>ExpNo 1 : Implement Depth First Search Traversal of a Graph</h1> 
-<h3>Name: Saravanan N</h3>
-<h3>Register Number/Staff Id: TSML006</h3>
+<h1>Exp No 1 : Implement Depth First Search Traversal of a Graph</h1> 
+<h3>Name: Gopika R</h3>
+<h3>Register No: 212222240031</h3>
 <H3>Aim:</H3>
 <p> To Implement Depth First Search Traversal of a Graph using Python 3.</p>
 <h3>Theory:</h3>
@@ -54,42 +54,62 @@ Now, the Stack becomes empty, which means we have visited all the nodes, and our
  <li>If Not Visited, add it to the STACK. Else Call The Function Again Until No more nodes needs to be visited.</li>
 </ol></B>
 
-<hr>
-<h3>Sample Input</h3>
-<hr>
-8 9 <BR>
-A B <BR>
-A C <BR>
-B E <BR>
-C D <BR>
-B D <BR>
-C G <BR>
-D F <BR>
-G F <BR>
-F H <BR>
-<hr>
-<h3>Sample Output</h3>
-<hr>
-['A', 'B', 'E', 'D', 'C', 'G', 'F', 'H']
+## Program:
+```
+#import defaultdict
+from collections import defaultdict
+def dfs(graph,start,visited,path):
+    path.append(start)
+    visited[start]=True
+    for neighbour in graph[start]:
+        if visited[neighbour]==False:
+            dfs(graph,neighbour,visited,path)
+            visited[neighbour]=True
+    return path
+graph=defaultdict(list)
+n,e=map(int,input().split())
+for i in range(e):
+    u,v=map(str,input().split())
+    graph[u].append(v)
+    graph[v].append(u)
+#print(graph)
+start='A'
+visited=defaultdict(bool)
+path=[]
+traversedpath=dfs(graph,start,visited,path)
+print(traversedpath)
+```
+## Input:
+```
+8 9
+A B 
+A C 
+B E 
+C D 
+B D 
+C G 
+D F 
+G F 
+F H 
+```
 
-<hr>
+## Output:
+![fun of ai exp1](https://github.com/Gopika-9266/19AI405FUNDAMENTALSOFARTIFICIALINTELLIGENCE/assets/122762773/7c1b1ef3-690d-4d8c-bb50-2240516321c9)
 
-<hr>
-<h3>Sample Input</h3>
-<hr>
-5 5 <BR>
-0 1 <BR>
-0 2 <BR>
-0 3 <BR>
-2 3 <BR>
-2 4 <BR>
-<hr>
-<h3>Sample Output</h3>
-<hr>
-['0', '1', '2', '3', '4']
 
-<hr>
-<h3>Result:</h3>
-<hr>
+## Input:
+```
+5 5 
+0 1 
+0 2 
+0 3 
+2 3 
+2 4 
+```
+## Output:
+![fun of ai exp1-1](https://github.com/Gopika-9266/19AI405FUNDAMENTALSOFARTIFICIALINTELLIGENCE/assets/122762773/bacdc3ca-d1e7-4b20-a4b6-00b4f28d1b11)
+
+
+## Result:
 <p>Thus,a Graph was constructed and implementation of Depth First Search for the same graph was done successfully.</p>
 
