@@ -1,6 +1,6 @@
 <h1>ExpNo 2 : Implement Breadth First Search Traversal of a Graph</h1> 
-<h3>Name: Saravanan N</h3>
-<h3>Register Number/Staff Id: TSML006</h3>
+<h3>Name: Gopika R</h3>
+<h3>Register No: 212222240031</h3>
 <H3>Aim:</H3>
 <p>To Implement Breadth First Search Traversal of a Graph using Python 3.</p>
 <h3>Theory:</h3>
@@ -66,9 +66,44 @@ Now, Queue becomes empty, So, terminate these process of iteration.
 <li>Iterate steps 4 and 5 until all nodes get visited, and there are no more unvisited nodes.</li>
 
 </ol>
-
 <hr>
-<h3>Sample Input</h3>
+<h2> Program:</h2>
+<hr>
+
+
+```
+from collections import deque
+from collections import defaultdict
+def bfs(graph,start,visited,path):
+    queue = deque()
+    path.append(start)
+    queue.append(start)
+    visited[start] = True
+    while len(queue) != 0:
+        tmpnode = queue.popleft()
+        for neighbour in graph[tmpnode]:
+            if visited[neighbour] == False:
+                path.append(neighbour)
+                queue.append(neighbour)
+                visited[neighbour] = True
+    return path
+
+graph = defaultdict(list)
+v,e = map(int,input().split())
+for i in range(e):
+    u,v = map(str,input().split())
+    graph[u].append(v)
+    graph[v].append(u)
+
+start = 'A'
+path = []
+visited = defaultdict(bool)
+traversedpath = bfs(graph,start,visited,path)
+print(traversedpath)
+```
+
+ 
+<h3> Input 1:</h3>
 <hr>
 7 9 <BR>
 A B <BR>
@@ -81,14 +116,13 @@ D E <BR>
 D G <BR>
 G F <BR>
 <hr>
-<h3>Sample Output</h3>
-<hr>
-['A', 'B', 'C', 'F', 'E', 'D', 'G']
+<h3>Output:</h3>
+
+![Screenshot 2023-11-02 182603](https://github.com/Gopika-9266/19AI405FUNDAMENTALSOFARTIFICIALINTELLIGENCE/assets/122762773/aac5f07c-8290-4499-aa14-c390d3d710ac)
+
 
 <hr>
-
-<hr>
-<h3>Sample Input</h3>
+<h3>Input 2</h3>
 <hr>
 5 6 <BR>
 0 1 <BR>
@@ -98,9 +132,12 @@ G F <BR>
 2 4 <BR>
 3 4 <BR>
 <hr>
-<h3>Sample Output</h3>
-<hr>
-['0', '1', '2', '3', '4']
+<h3> Output:</h3>
+
+![Screenshot 2023-11-02 182610](https://github.com/Gopika-9266/19AI405FUNDAMENTALSOFARTIFICIALINTELLIGENCE/assets/122762773/e6e864b8-e11e-41da-8e3d-f077e8ab3712)
+
+
+
 <hr>
 <h3>Result:</h3>
 <hr>
