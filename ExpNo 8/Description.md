@@ -142,6 +142,7 @@ while(player):
 
 
 
+![image](https://github.com/Gopika-9266/19AI405FUNDAMENTALSOFARTIFICIALINTELLIGENCE/assets/122762773/6e5a1cf9-53b5-47ab-b6d0-9fa8e5b14961)
 
 
 <hr>
